@@ -2618,6 +2618,20 @@ module.exports = [
 },{}],17:[function(require,module,exports){
 'use strict';
 
+function mostrarHeader() {
+  var nav = document.getElementById('nav');
+  nav.classList.add('mostrado');
+}
+
+function ocultarHeader() {
+  var nav = document.getElementById('nav');
+  nav.classList.remove('mostrado');
+}
+module.exports = { mostrarHeader: mostrarHeader, ocultarHeader: ocultarHeader };
+
+},{}],18:[function(require,module,exports){
+'use strict';
+
 var _emptyElement = require('empty-element');
 
 var _emptyElement2 = _interopRequireDefault(_emptyElement);
@@ -2636,14 +2650,18 @@ module.exports = function (ctx, next) {
   next();
 };
 
-},{"./template":18,"empty-element":4}],18:[function(require,module,exports){
+},{"./template":19,"empty-element":4}],19:[function(require,module,exports){
 'use strict';
 
-var _templateObject = _taggedTemplateLiteral(['\n <header>\n  <nav>\n   <section class="logoLine">\n    <div class="logo"></div>\n    <div class="salir"></div>\n   </section>\n   <section class="menuLine">\n\n   </section>\n   <section class="subMenuLine"></section>\n  </nav>\n </header>\n'], ['\n <header>\n  <nav>\n   <section class="logoLine">\n    <div class="logo"></div>\n    <div class="salir"></div>\n   </section>\n   <section class="menuLine">\n\n   </section>\n   <section class="subMenuLine"></section>\n  </nav>\n </header>\n']);
+var _templateObject = _taggedTemplateLiteral(['\n <header>\n  <a class="menuBoton" onclick=', ' id="menuBoton"><i class="fa fa-bars" aria-hidden="true"></i></a>\n  <nav id="nav">\n   <section class="logoLine">\n    <div class="logo"></div>\n    <a class="salir" onclick=', ' href="#">X</a>\n   </section>\n   <section class="menuLine">\n    <div class="menu">\n     <a href="#">INICIO</a>\n     <a href="#">QUIENES SOMOS</a>\n     <a href="#">REPERTORIO</a>\n     <a href="#">MEDIA</a>\n     <a href="#">CONT\xC1CTENOS</a>\n    </div>\n    <div class="futurosConciertos">\n     <h3>FUTUROS CONCIERTOS</h3>\n     <a class="concierto" href="">\n       <div class="conciertoImagen"></div>\n       <hgroup>\n         <h2>Biblioteca De Chorrera</h>\n         <h5>17 de diciembre de 2017</h5>\n       </hgroup>\n     </a>\n     <a class="concierto" href="">\n      <div class="conciertoImagen"></div>\n      <hgroup>\n       <h2>Biblioteca De Boquete</h2>\n       <h5>23 de diciembre de 2017</h5>\n      </hgroup>\n     </a>\n    </div>\n   </section>\n   <section class="subMenuLine"></section>\n  </nav>\n </header>\n'], ['\n <header>\n  <a class="menuBoton" onclick=', ' id="menuBoton"><i class="fa fa-bars" aria-hidden="true"></i></a>\n  <nav id="nav">\n   <section class="logoLine">\n    <div class="logo"></div>\n    <a class="salir" onclick=', ' href="#">X</a>\n   </section>\n   <section class="menuLine">\n    <div class="menu">\n     <a href="#">INICIO</a>\n     <a href="#">QUIENES SOMOS</a>\n     <a href="#">REPERTORIO</a>\n     <a href="#">MEDIA</a>\n     <a href="#">CONT\xC1CTENOS</a>\n    </div>\n    <div class="futurosConciertos">\n     <h3>FUTUROS CONCIERTOS</h3>\n     <a class="concierto" href="">\n       <div class="conciertoImagen"></div>\n       <hgroup>\n         <h2>Biblioteca De Chorrera</h>\n         <h5>17 de diciembre de 2017</h5>\n       </hgroup>\n     </a>\n     <a class="concierto" href="">\n      <div class="conciertoImagen"></div>\n      <hgroup>\n       <h2>Biblioteca De Boquete</h2>\n       <h5>23 de diciembre de 2017</h5>\n      </hgroup>\n     </a>\n    </div>\n   </section>\n   <section class="subMenuLine"></section>\n  </nav>\n </header>\n']);
 
 var _yoYo = require('yo-yo');
 
 var _yoYo2 = _interopRequireDefault(_yoYo);
+
+var _functions = require('./functions');
+
+var _functions2 = _interopRequireDefault(_functions);
 
 function _interopRequireDefault(obj) {
   return obj && obj.__esModule ? obj : { default: obj };
@@ -2653,9 +2671,9 @@ function _taggedTemplateLiteral(strings, raw) {
   return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } }));
 }
 
-module.exports = (0, _yoYo2.default)(_templateObject);
+module.exports = (0, _yoYo2.default)(_templateObject, _functions2.default.mostrarHeader, _functions2.default.ocultarHeader);
 
-},{"yo-yo":15}],19:[function(require,module,exports){
+},{"./functions":17,"yo-yo":15}],20:[function(require,module,exports){
 'use strict';
 
 var _page = require('page');
@@ -2674,7 +2692,7 @@ require('./inicio');
 
 (0, _page2.default)();
 
-},{"./inicio":20,"page":12}],20:[function(require,module,exports){
+},{"./inicio":21,"page":12}],21:[function(require,module,exports){
 'use strict';
 
 var _page = require('page');
@@ -2702,7 +2720,7 @@ function _interopRequireDefault(obj) {
   (0, _emptyElement2.default)(main).appendChild(_template2.default);
 });
 
-},{"../header":17,"./template":21,"empty-element":4,"page":12}],21:[function(require,module,exports){
+},{"../header":18,"./template":22,"empty-element":4,"page":12}],22:[function(require,module,exports){
 'use strict';
 
 var _templateObject = _taggedTemplateLiteral(['\n <h1>hola mundo</h1>\n'], ['\n <h1>hola mundo</h1>\n']);
@@ -2721,4 +2739,4 @@ function _taggedTemplateLiteral(strings, raw) {
 
 module.exports = (0, _yoYo2.default)(_templateObject);
 
-},{"yo-yo":15}]},{},[19]);
+},{"yo-yo":15}]},{},[20]);
